@@ -16,12 +16,38 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo">
-        <svg viewBox="0 0 44 44" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="22" cy="22" r="20" fill="#003580" stroke="#C9A227" stroke-width="2"/>
-          <path d="M9 24 L22 15 L35 24 L30 24 L30 28 L26 26 L22 28 L18 26 L14 28 L14 24 Z" fill="#C9A227"/>
-          <path d="M15 24 L22 19.5 L29 24" fill="none" stroke="white" stroke-width="1.2" opacity="0.6"/>
+        <!-- United Airlines tulip (recreation) -->
+        <svg viewBox="0 0 48 52" width="36" height="40" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left petal -->
+          <path d="M24 50 C10 48 1 35 4 21 C7 9 20 4 23 15 C24 20 24 35 24 50Z" fill="white"/>
+          <!-- Right petal -->
+          <path d="M24 50 C38 48 47 35 44 21 C41 9 28 4 25 15 C24 20 24 35 24 50Z" fill="white"/>
+          <!-- Center-top petal -->
+          <path d="M24 50 C16 36 15 22 20 11 C22 4 26 4 28 11 C33 22 32 36 24 50Z" fill="white"/>
         </svg>
-        <span class="logo-text">United <strong>VA</strong></span>
+        <div class="logo-text-group">
+          <span class="logo-airline">united</span>
+          <span class="logo-va-tag">VIRTUAL AIRLINE</span>
+        </div>
+      </a>
+
+      <!-- IVAO badge -->
+      <a href="https://ivao.aero" target="_blank" rel="noopener" class="nav-ivao-badge" aria-label="Fly on IVAO">
+        <!-- IVAO globe recreation -->
+        <svg viewBox="0 0 40 40" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="#00327a"/>
+          <!-- Latitude lines -->
+          <ellipse cx="20" cy="20" rx="19" ry="8"  fill="none" stroke="white" stroke-width="1"   opacity="0.55"/>
+          <ellipse cx="20" cy="13" rx="15" ry="5"  fill="none" stroke="white" stroke-width="0.8" opacity="0.35"/>
+          <ellipse cx="20" cy="27" rx="15" ry="5"  fill="none" stroke="white" stroke-width="0.8" opacity="0.35"/>
+          <!-- Vertical meridian -->
+          <line x1="20" y1="1"  x2="20" y2="39" stroke="white" stroke-width="1" opacity="0.55"/>
+          <!-- Horizontal equator -->
+          <line x1="1"  y1="20" x2="39" y2="20" stroke="white" stroke-width="1" opacity="0.35"/>
+          <!-- Border -->
+          <circle cx="20" cy="20" r="19" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+        </svg>
+        <span>IVAO</span>
       </a>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
@@ -82,6 +108,39 @@
       </div>
     </div>
 
+    <!-- Network badges row -->
+    <div class="hero-network">
+      <div class="hnet-item">
+        <!-- United Airlines tulip -->
+        <svg viewBox="0 0 48 52" width="32" height="36" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 50 C10 48 1 35 4 21 C7 9 20 4 23 15 C24 20 24 35 24 50Z" fill="white" opacity="0.9"/>
+          <path d="M24 50 C38 48 47 35 44 21 C41 9 28 4 25 15 C24 20 24 35 24 50Z" fill="white" opacity="0.9"/>
+          <path d="M24 50 C16 36 15 22 20 11 C22 4 26 4 28 11 C33 22 32 36 24 50Z" fill="white" opacity="0.9"/>
+        </svg>
+        <div class="hnet-text">
+          <span class="hnet-name">united</span>
+          <span class="hnet-sub">Aerolínea base</span>
+        </div>
+      </div>
+      <div class="hnet-sep"></div>
+      <div class="hnet-item">
+        <!-- IVAO globe -->
+        <svg viewBox="0 0 40 40" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" fill="rgba(255,255,255,0.12)"/>
+          <ellipse cx="20" cy="20" rx="19" ry="8"  fill="none" stroke="white" stroke-width="1.2" opacity="0.6"/>
+          <ellipse cx="20" cy="13" rx="15" ry="5"  fill="none" stroke="white" stroke-width="0.8" opacity="0.35"/>
+          <ellipse cx="20" cy="27" rx="15" ry="5"  fill="none" stroke="white" stroke-width="0.8" opacity="0.35"/>
+          <line x1="20" y1="1"  x2="20" y2="39" stroke="white" stroke-width="1.2" opacity="0.6"/>
+          <line x1="1"  y1="20" x2="39" y2="20" stroke="white" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="20" cy="20" r="19" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+        </svg>
+        <div class="hnet-text">
+          <span class="hnet-name">IVAO</span>
+          <span class="hnet-sub">Red de vuelo virtual</span>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-scroll">
       <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
       <span>Scroll</span>
@@ -110,6 +169,51 @@
         <span class="stat-num" data-target="12">0</span>
         <span class="stat-lbl">Aircraft Types</span>
       </div>
+    </div>
+  </section>
+
+  <!-- ─── AFFILIATIONS ─── -->
+  <section class="affiliations-bar">
+    <div class="aff-inner">
+      <span class="aff-label">Afiliaciones oficiales</span>
+
+      <!-- United Airlines -->
+      <div class="aff-logo-block">
+        <svg viewBox="0 0 48 52" width="44" height="48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 50 C10 48 1 35 4 21 C7 9 20 4 23 15 C24 20 24 35 24 50Z" fill="#1565c0"/>
+          <path d="M24 50 C38 48 47 35 44 21 C41 9 28 4 25 15 C24 20 24 35 24 50Z" fill="#1565c0"/>
+          <path d="M24 50 C16 36 15 22 20 11 C22 4 26 4 28 11 C33 22 32 36 24 50Z" fill="#1565c0"/>
+        </svg>
+        <div class="aff-logo-text">
+          <span class="aff-name">united</span>
+          <span class="aff-desc">Aerolínea base</span>
+        </div>
+      </div>
+
+      <div class="aff-divider"></div>
+
+      <!-- IVAO -->
+      <a href="https://ivao.aero" target="_blank" rel="noopener" class="aff-logo-block aff-link">
+        <svg viewBox="0 0 80 80" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" fill="#00327a"/>
+          <!-- latitude lines -->
+          <ellipse cx="40" cy="40" rx="38" ry="16" fill="none" stroke="white" stroke-width="1.5" opacity="0.55"/>
+          <ellipse cx="40" cy="25" rx="30" ry="9"  fill="none" stroke="white" stroke-width="1"   opacity="0.35"/>
+          <ellipse cx="40" cy="55" rx="30" ry="9"  fill="none" stroke="white" stroke-width="1"   opacity="0.35"/>
+          <!-- meridians -->
+          <line x1="40" y1="2"  x2="40" y2="78" stroke="white" stroke-width="1.5" opacity="0.55"/>
+          <line x1="2"  y1="40" x2="78" y2="40" stroke="white" stroke-width="1"   opacity="0.35"/>
+          <!-- outer ring -->
+          <circle cx="40" cy="40" r="38" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <!-- IVAO text -->
+          <text x="40" y="46" font-family="Arial Black,Arial" font-size="17" font-weight="900"
+                fill="white" text-anchor="middle" letter-spacing="2">IVAO</text>
+        </svg>
+        <div class="aff-logo-text">
+          <span class="aff-name ivao-name">IVAO</span>
+          <span class="aff-desc">International Virtual Aviation Organisation</span>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -487,7 +591,7 @@
           <div class="jf"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>No minimum hours to apply</div>
           <div class="jf"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>MSFS, X-Plane &amp; P3D compatible</div>
           <div class="jf"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ACARS &amp; real-time pilot tracking</div>
-          <div class="jf"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Active Discord community &amp; events</div>
+          <div class="jf"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Comunidad activa en <a href="https://discord.gg/NBmWVwSwe" target="_blank" rel="noopener" style="color:var(--gold-light);text-decoration:underline;">Discord</a></div>
         </div>
         <a href="#register" class="btn btn-gold btn-lg">Solicitar ingreso — Es gratis</a>
       </div>
@@ -646,17 +750,46 @@
     <div class="container">
       <div class="footer-grid">
 
+        <!-- Brand -->
         <div class="footer-brand">
           <a href="#home" class="footer-logo">
-            <svg viewBox="0 0 44 44" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="22" cy="22" r="20" fill="#003580" stroke="#C9A227" stroke-width="2"/>
-              <path d="M9 24 L22 15 L35 24 L30 24 L30 28 L26 26 L22 28 L18 26 L14 28 L14 24 Z" fill="#C9A227"/>
+            <!-- United tulip in gold for footer -->
+            <svg viewBox="0 0 48 52" width="34" height="38" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 50 C10 48 1 35 4 21 C7 9 20 4 23 15 C24 20 24 35 24 50Z" fill="#f0b429"/>
+              <path d="M24 50 C38 48 47 35 44 21 C41 9 28 4 25 15 C24 20 24 35 24 50Z" fill="#f0b429"/>
+              <path d="M24 50 C16 36 15 22 20 11 C22 4 26 4 28 11 C33 22 32 36 24 50Z" fill="#f0b429"/>
             </svg>
-            <span>United <strong>VA</strong></span>
+            <div class="logo-text-group">
+              <span class="logo-airline footer-airline">united</span>
+              <span class="logo-va-tag">VIRTUAL AIRLINE</span>
+            </div>
           </a>
-          <p>A premier virtual airline delivering immersive flight simulation across the globe.</p>
+          <p>Aerolínea virtual de simulación de vuelo. Vuelos en la red IVAO con rutas de United Airlines.</p>
+
+          <!-- Affiliation logos -->
+          <div class="footer-affiliations">
+            <a href="https://ivao.aero" target="_blank" rel="noopener" class="footer-aff-badge" title="Fly on IVAO">
+              <svg viewBox="0 0 40 40" width="22" height="22" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="19" fill="#00327a"/>
+                <ellipse cx="20" cy="20" rx="19" ry="8"  fill="none" stroke="white" stroke-width="1.2" opacity="0.6"/>
+                <line x1="20" y1="1" x2="20" y2="39" stroke="white" stroke-width="1.2" opacity="0.6"/>
+                <circle cx="20" cy="20" r="19" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+              </svg>
+              <span>IVAO</span>
+            </a>
+            <span class="footer-aff-sep">·</span>
+            <div class="footer-aff-badge" title="Basado en United Airlines">
+              <svg viewBox="0 0 48 52" width="18" height="20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 50 C10 48 1 35 4 21 C7 9 20 4 23 15 C24 20 24 35 24 50Z" fill="rgba(255,255,255,0.5)"/>
+                <path d="M24 50 C38 48 47 35 44 21 C41 9 28 4 25 15 C24 20 24 35 24 50Z" fill="rgba(255,255,255,0.5)"/>
+                <path d="M24 50 C16 36 15 22 20 11 C22 4 26 4 28 11 C33 22 32 36 24 50Z" fill="rgba(255,255,255,0.5)"/>
+              </svg>
+              <span>united inspired</span>
+            </div>
+          </div>
+
           <div class="socials">
-            <a href="#" aria-label="Discord" class="slink">
+            <a href="https://discord.gg/NBmWVwSwe" target="_blank" rel="noopener" aria-label="Discord" class="slink slink-discord">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.134 18.117a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
             </a>
             <a href="#" aria-label="Twitter/X" class="slink">
@@ -669,42 +802,48 @@
         </div>
 
         <div class="footer-col">
-          <h4>Navigation</h4>
+          <h4>Navegación</h4>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#fleet">Fleet</a></li>
-            <li><a href="#routes">Routes</a></li>
-            <li><a href="#join">Join Us</a></li>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#fleet">Flota</a></li>
+            <li><a href="#routes">Rutas</a></li>
+            <li><a href="#register">Registro</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Pilot Center</h4>
+          <h4>Piloto</h4>
           <ul>
-            <li><a href="#">ACARS Download</a></li>
-            <li><a href="#">Flight Schedules</a></li>
-            <li><a href="#">Training Materials</a></li>
-            <li><a href="#">Pilot Rankings</a></li>
+            <li><a href="#">Descargar ACARS</a></li>
+            <li><a href="#">Horarios de vuelo</a></li>
+            <li><a href="#">Materiales de entrenamiento</a></li>
+            <li><a href="#">Ranking de pilotos</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Community</h4>
+          <h4>Comunidad</h4>
           <ul>
-            <li><a href="#">Discord Server</a></li>
-            <li><a href="#">Events Calendar</a></li>
-            <li><a href="#">News &amp; Updates</a></li>
-            <li><a href="#">Staff Team</a></li>
+            <li><a href="https://discord.gg/NBmWVwSwe" target="_blank" rel="noopener">Discord Server</a></li>
+            <li><a href="#">Calendario de eventos</a></li>
+            <li><a href="#">Noticias</a></li>
+            <li><a href="mailto:unitedvaivao@gmail.com">Contacto</a></li>
           </ul>
         </div>
 
       </div>
 
+      <!-- Disclaimer -->
+      <div class="footer-disclaimer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p>United VA es una aerolínea virtual ficticia creada con fines de simulación. No está afiliada, patrocinada ni respaldada por United Airlines, Inc. Los logos e imágenes de referencia pertenecen a sus respectivos propietarios.</p>
+      </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2024 United VA. Not affiliated with United Airlines, Inc.</p>
+        <p>&copy; 2024 United VA &nbsp;·&nbsp; <a href="mailto:unitedvaivao@gmail.com">unitedvaivao@gmail.com</a></p>
         <div class="footer-legal">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
         </div>
       </div>
     </div>
