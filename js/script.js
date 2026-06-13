@@ -134,6 +134,49 @@ tabs.forEach(tab => {
   });
 });
 
+/* ─── Registration form ─── */
+const registerForm = document.getElementById('registerForm');
+const formSuccess  = document.getElementById('formSuccess');
+
+if (registerForm) {
+  registerForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    // Simple required-field validation
+    const required = registerForm.querySelectorAll('[required]');
+    let valid = true;
+
+    required.forEach(field => {
+      field.style.borderColor = '';
+      if (!field.value.trim()) {
+        field.style.borderColor = '#e53e3e';
+        field.style.boxShadow = '0 0 0 3px rgba(229,62,62,0.15)';
+        valid = false;
+      }
+    });
+
+    if (!valid) return;
+
+    // Simulate submission (replace with real fetch/API call)
+    const btn = registerForm.querySelector('[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+
+    setTimeout(() => {
+      registerForm.style.display = 'none';
+      formSuccess.classList.add('visible');
+    }, 1200);
+  });
+
+  // Clear red border on input
+  registerForm.querySelectorAll('input, select, textarea').forEach(field => {
+    field.addEventListener('input', () => {
+      field.style.borderColor = '';
+      field.style.boxShadow = '';
+    });
+  });
+}
+
 /* ─── Smooth scroll for anchor links ─── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
