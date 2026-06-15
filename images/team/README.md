@@ -14,6 +14,7 @@ Usa el nombre en minúsculas, sin tildes, con guiones entre palabras y extensió
 | Emiliano Guillén | CO-CEO         | `images/team/emiliano-guillen.jpg`|
 | Santiago Martínez| Social Media   | `images/team/santiago-martinez.jpg`|
 | Miguel Garza     | Chief of Pilots| `images/team/miguel-garza.jpg`    |
+| Ezequiel Cobián  | Training Manager| `images/team/ezequiel-cobian.jpg`|
 | (siguiente)      | —              | `images/team/nombre-apellido.jpg` |
 
 ## Recomendaciones
