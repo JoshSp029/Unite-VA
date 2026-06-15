@@ -1416,7 +1416,7 @@ img, svg { display: block; }
   color: var(--gray-600);
 }
 
-/* ─── Welcome (bilingual) ─── */
+/* ─── Welcome Section ─── */
 .welcome-section {
   position: relative;
   padding: 100px 0;
@@ -1675,20 +1675,6 @@ img, svg { display: block; }
   margin-bottom: 18px;
 }
 
-.tcard-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--navy-500);
-  color: var(--white);
-  font-family: var(--font-head);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 6px 14px;
-  border-radius: 20px;
-}
-
 .tcard-status {
   display: inline-flex;
   align-items: center;
@@ -1703,18 +1689,6 @@ img, svg { display: block; }
   height: auto;
   border-radius: var(--radius-sm);
 }
-
-.team-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 40px;
-  font-size: 0.85rem;
-  color: var(--gray-400);
-}
-
-.team-note svg { flex-shrink: 0; }
 
 /* ─── NewSky / Come Join Us ─── */
 .newsky-section {
@@ -1790,14 +1764,6 @@ img, svg { display: block; }
   box-shadow: 0 8px 24px rgba(88,101,242,0.4);
 }
 
-.newsky-note {
-  font-size: 0.8rem;
-  color: var(--gray-400);
-  line-height: 1.6;
-  font-style: italic;
-}
-
-/* NewSky card */
 .newsky-card {
   background: linear-gradient(160deg, var(--navy-700) 0%, var(--navy-600) 100%);
   border-radius: var(--radius-xl);
