@@ -1689,6 +1689,21 @@ img, svg { display: block; }
   border-radius: 20px;
 }
 
+.tcard-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.tcard-status:hover { transform: translateY(-1px); opacity: 0.9; }
+
+.tcard-status img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
 .team-note {
   display: flex;
   align-items: center;
