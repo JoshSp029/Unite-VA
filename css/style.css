@@ -1949,6 +1949,10 @@ img, svg { display: block; }
 /* ─── Route Network Map (MapLibre GL) ─── */
 .route-map-wrap {
   margin-top: 3.5rem;
+  background: #060e20;
+  border-radius: 16px;
+  padding: 2rem 2rem 0;
+  border: 1px solid rgba(240,180,41,.18);
 }
 .route-map-title {
   text-align: center;
@@ -1960,8 +1964,7 @@ img, svg { display: block; }
   margin-bottom: 1.25rem;
 }
 .route-map-container {
-  border: 1px solid rgba(240,180,41,.18);
-  border-radius: 14px;
+  border-radius: 10px;
   overflow: hidden;
 }
 #routeMap {
@@ -1973,11 +1976,10 @@ img, svg { display: block; }
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
-  padding: .65rem 1rem;
+  padding: .75rem 1rem;
   font-size: .78rem;
   color: rgba(255,255,255,.55);
-  border-top: 1px solid rgba(255,255,255,.06);
-  background: #060e20;
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 .rml-dot {
   display: inline-block;
@@ -2019,10 +2021,13 @@ img, svg { display: block; }
 
 /* ─── UA Logo image (replaces SVG tulip when file is present) ─── */
 .ua-logo-img {
-  width: 36px;
-  height: 40px;
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px;
+  max-height: 36px;
   object-fit: contain;
   display: block;
+  flex-shrink: 0;
 }
 .ua-logo-svg { display: none; }
 
