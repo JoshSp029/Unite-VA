@@ -13,6 +13,7 @@ Usa el nombre en minúsculas, sin tildes, con guiones entre palabras y extensió
 | Esteban Ochoa    | CEO / Fundador | `images/team/esteban-ochoa.jpg`   |
 | Emiliano Guillén | CO-CEO         | `images/team/emiliano-guillen.jpg`|
 | Santiago Martínez| Social Media   | `images/team/santiago-martinez.jpg`|
+| Miguel Garza     | Chief of Pilots| `images/team/miguel-garza.jpg`    |
 | (siguiente)      | —              | `images/team/nombre-apellido.jpg` |
 
 ## Recomendaciones
