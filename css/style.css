@@ -517,6 +517,7 @@ img, svg { display: block; }
 .vis-widebody    { background: linear-gradient(135deg, #0d2244 0%, #1565c0 100%); }
 .vis-triple7     { background: linear-gradient(135deg, #071628 0%, #1243a0 100%); }
 .vis-dreamliner  { background: linear-gradient(135deg, #0d2244 0%, #1e88e5 60%, #f0b429 100%); }
+.vis-regional    { background: linear-gradient(135deg, #0d3050 0%, #1a6090 100%); }
 
 .fcard-plane {
   width: 88%;
@@ -1416,7 +1417,7 @@ img, svg { display: block; }
   color: var(--gray-600);
 }
 
-/* ─── Welcome Section ─── */
+/* ─── Welcome (bilingual) ─── */
 .welcome-section {
   position: relative;
   padding: 100px 0;
@@ -1675,6 +1676,20 @@ img, svg { display: block; }
   margin-bottom: 18px;
 }
 
+.tcard-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy-500);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
 .tcard-status {
   display: inline-flex;
   align-items: center;
@@ -1689,6 +1704,18 @@ img, svg { display: block; }
   height: auto;
   border-radius: var(--radius-sm);
 }
+
+.team-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: var(--gray-400);
+}
+
+.team-note svg { flex-shrink: 0; }
 
 /* ─── NewSky / Come Join Us ─── */
 .newsky-section {
@@ -1764,6 +1791,14 @@ img, svg { display: block; }
   box-shadow: 0 8px 24px rgba(88,101,242,0.4);
 }
 
+.newsky-note {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* NewSky card */
 .newsky-card {
   background: linear-gradient(160deg, var(--navy-700) 0%, var(--navy-600) 100%);
   border-radius: var(--radius-xl);
@@ -1910,3 +1945,66 @@ img, svg { display: block; }
   .rcard-details { grid-template-columns: 1fr 1fr; }
   .rdetail:last-child { grid-column: 1 / -1; }
 }
+
+/* ─── Route Network Map ─── */
+.route-map-wrap {
+  margin-top: 3.5rem;
+}
+.route-map-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.route-map-container {
+  background: #060e20;
+  border: 1px solid rgba(240,180,41,.18);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.route-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.route-map-legend {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: .65rem 1rem;
+  font-size: .78rem;
+  color: rgba(255,255,255,.55);
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.rml-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: .3rem;
+  vertical-align: middle;
+  font-style: normal;
+}
+.rml-us   { background: #f0b429; }
+.rml-intl { background: white; }
+.rml-line { color: #f0b429; }
+
+/* ─── Footer email link ─── */
+.footer-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--gold);
+  font-size: .82rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1rem;
+  opacity: .85;
+  transition: opacity .2s;
+  letter-spacing: .02em;
+}
+.footer-email-link:hover { opacity: 1; text-decoration: underline; }
