@@ -29,3 +29,21 @@ Usa el nombre en minúsculas, sin tildes, con guiones entre palabras y extensió
 1. Coloca el archivo en esta carpeta (`images/team/`) con el nombre indicado.
 2. Haz commit y push de la imagen al repo.
 3. La foto aparecerá automáticamente en la tarjeta correspondiente.
+
+## Estado IVAO en vivo (badges)
+
+Cada tarjeta puede mostrar el estado online/offline del piloto vía IVAO.
+El badge se genera con el **VID** del piloto: `https://status.ivao.aero/<VID>.png`
+
+| Miembro          | VID IVAO | Estado     |
+|------------------|----------|------------|
+| Esteban Ochoa    | 746068   | ✅ activo   |
+| Emiliano Guillén | —        | pendiente  |
+| Santiago Martínez| —        | pendiente  |
+| Miguel Garza     | —        | pendiente  |
+| Ezequiel Cobián  | —        | pendiente  |
+| Edgar Cepeda     | —        | pendiente  |
+
+Para activar un badge: en `index.html`, dentro de la tarjeta del miembro,
+descomenta el bloque `<!-- Estado IVAO ... -->`, sustituye `VID` por el número
+real, y elimina el bloque `tcard-tag` anterior.
