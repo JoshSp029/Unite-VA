@@ -1946,7 +1946,7 @@ img, svg { display: block; }
   .rdetail:last-child { grid-column: 1 / -1; }
 }
 
-/* ─── Route Network Map ─── */
+/* ─── Route Network Map (MapLibre GL) ─── */
 .route-map-wrap {
   margin-top: 3.5rem;
 }
@@ -1960,15 +1960,13 @@ img, svg { display: block; }
   margin-bottom: 1.25rem;
 }
 .route-map-container {
-  background: #060e20;
   border: 1px solid rgba(240,180,41,.18);
   border-radius: 14px;
   overflow: hidden;
 }
-.route-map-svg {
-  display: block;
+#routeMap {
   width: 100%;
-  height: auto;
+  height: 460px;
 }
 .route-map-legend {
   display: flex;
@@ -1979,6 +1977,7 @@ img, svg { display: block; }
   font-size: .78rem;
   color: rgba(255,255,255,.55);
   border-top: 1px solid rgba(255,255,255,.06);
+  background: #060e20;
 }
 .rml-dot {
   display: inline-block;
@@ -1992,6 +1991,40 @@ img, svg { display: block; }
 .rml-us   { background: #f0b429; }
 .rml-intl { background: white; }
 .rml-line { color: #f0b429; }
+
+/* Airport marker dots */
+.rmap-dot {
+  border-radius: 50%;
+  border: 2px solid rgba(6,14,32,.8);
+  cursor: pointer;
+  transition: transform .15s;
+}
+.rmap-dot:hover { transform: scale(1.5); }
+.rmap-hub  { width: 12px; height: 12px; background: #f0b429; }
+.rmap-intl { width: 9px;  height: 9px;  background: white; }
+
+/* MapLibre popup override */
+.maplibregl-popup-content {
+  background: #f0b429 !important;
+  color: #071628 !important;
+  padding: 3px 9px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+.maplibregl-popup-tip { border-top-color: #f0b429 !important; border-bottom-color: #f0b429 !important; }
+.maplibregl-ctrl-attrib { font-size: 9px !important; opacity: 0.4 !important; }
+
+/* ─── UA Logo image (replaces SVG tulip when file is present) ─── */
+.ua-logo-img {
+  width: 36px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+}
+.ua-logo-svg { display: none; }
 
 /* ─── Footer email link ─── */
 .footer-email-link {
