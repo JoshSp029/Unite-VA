@@ -12,6 +12,7 @@ Usa el nombre en minúsculas, sin tildes, con guiones entre palabras y extensió
 |------------------|----------------|----------------------------------|
 | Esteban Ochoa    | CEO / Fundador | `images/team/esteban-ochoa.jpg`   |
 | Emiliano Guillén | CO-CEO         | `images/team/emiliano-guillen.jpg`|
+| Santiago Martínez| Social Media   | `images/team/santiago-martinez.jpg`|
 | (siguiente)      | —              | `images/team/nombre-apellido.jpg` |
 
 ## Recomendaciones
