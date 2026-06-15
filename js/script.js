@@ -42,40 +42,58 @@ navLinksEl.querySelectorAll('a').forEach(a => {
   const canvas = document.getElementById('starCanvas');
   const ctx = canvas.getContext('2d');
   let stars = [];
+  let visible = true;
+  let lastFrame = 0;
+  const FPS = 30;
+  const INTERVAL = 1000 / FPS;
+  let resizeTimer;
 
   function resize() {
-    canvas.width  = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-    buildStarField();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      canvas.width  = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      buildStarField();
+    }, 150);
   }
 
   function buildStarField() {
-    const count = Math.floor((canvas.width * canvas.height) / 5000);
+    const count = Math.min(Math.floor((canvas.width * canvas.height) / 8000), 120);
     stars = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       r: Math.random() * 1.4 + 0.2,
-      a: Math.random(),
-      speed: Math.random() * 0.004 + 0.001,
+      a: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.006 + 0.002,
     }));
   }
 
-  function draw() {
+  ctx.fillStyle = 'white';
+
+  function draw(ts) {
+    requestAnimationFrame(draw);
+    if (!visible || ts - lastFrame < INTERVAL) return;
+    lastFrame = ts;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     stars.forEach(s => {
       s.a += s.speed;
-      const alpha = 0.3 + 0.7 * Math.abs(Math.sin(s.a));
+      ctx.globalAlpha = 0.3 + 0.7 * Math.abs(Math.sin(s.a));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${alpha})`;
       ctx.fill();
     });
-    requestAnimationFrame(draw);
+    ctx.globalAlpha = 1;
   }
 
+  const observer = new IntersectionObserver(([e]) => { visible = e.isIntersecting; });
+  observer.observe(canvas);
+
   window.addEventListener('resize', resize, { passive: true });
-  resize();
-  draw();
+  canvas.width  = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  buildStarField();
+  requestAnimationFrame(draw);
 })();
 
 /* ─── Stats counter animation ─── */
