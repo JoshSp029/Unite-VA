@@ -10,8 +10,9 @@ Usa el nombre en minúsculas, sin tildes, con guiones entre palabras y extensió
 
 | Miembro          | Rol            | Archivo                          |
 |------------------|----------------|----------------------------------|
-| Esteban Ochoa    | CEO / Fundador | `images/team/esteban-ochoa.jpg`  |
-| (siguiente)      | —              | `images/team/nombre-apellido.jpg`|
+| Esteban Ochoa    | CEO / Fundador | `images/team/esteban-ochoa.jpg`   |
+| Emiliano Guillén | CO-CEO         | `images/team/emiliano-guillen.jpg`|
+| (siguiente)      | —              | `images/team/nombre-apellido.jpg` |
 
 ## Recomendaciones
 
