@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -16,8 +17,9 @@
   <nav id="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo">
-        <!-- United Airlines tulip (recreation) -->
-        <svg viewBox="0 0 48 52" width="36" height="40" xmlns="http://www.w3.org/2000/svg">
+        <img src="images/ua-logo.png" alt="United Airlines" class="ua-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <svg viewBox="0 0 48 52" width="36" height="40" xmlns="http://www.w3.org/2000/svg" class="ua-logo-svg">
           <path d="M24 50 C10 48 1 35 4 21 C7 9 20 4 23 15 C24 20 24 35 24 50Z" fill="white"/>
           <path d="M24 50 C38 48 47 35 44 21 C41 9 28 4 25 15 C24 20 24 35 24 50Z" fill="white"/>
           <path d="M24 50 C16 36 15 22 20 11 C22 4 26 4 28 11 C33 22 32 36 24 50Z" fill="white"/>
@@ -850,124 +852,7 @@
       <div class="route-map-wrap reveal">
         <h3 class="route-map-title">Route Network</h3>
         <div class="route-map-container">
-          <svg class="route-map-svg" viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="United VA world route network map">
-
-            <!-- Ocean -->
-            <rect width="960" height="440" fill="#060e20"/>
-
-            <!-- Graticule -->
-            <g stroke="#0c1e3a" stroke-width="0.6">
-              <line x1="0"   y1="0" x2="0"   y2="440"/>
-              <line x1="80"  y1="0" x2="80"  y2="440"/>
-              <line x1="160" y1="0" x2="160" y2="440"/>
-              <line x1="240" y1="0" x2="240" y2="440"/>
-              <line x1="320" y1="0" x2="320" y2="440"/>
-              <line x1="400" y1="0" x2="400" y2="440"/>
-              <line x1="480" y1="0" x2="480" y2="440"/>
-              <line x1="560" y1="0" x2="560" y2="440"/>
-              <line x1="640" y1="0" x2="640" y2="440"/>
-              <line x1="720" y1="0" x2="720" y2="440"/>
-              <line x1="800" y1="0" x2="800" y2="440"/>
-              <line x1="880" y1="0" x2="880" y2="440"/>
-              <line x1="0" y1="0"   x2="960" y2="0"/>
-              <line x1="0" y1="73"  x2="960" y2="73"/>
-              <line x1="0" y1="147" x2="960" y2="147"/>
-              <line x1="0" y1="220" x2="960" y2="220" stroke="#0f2a50" stroke-width="1"/>
-              <line x1="0" y1="293" x2="960" y2="293"/>
-              <line x1="0" y1="367" x2="960" y2="367"/>
-            </g>
-
-            <!-- Continents -->
-            <g fill="#14294f" stroke="#1e3a70" stroke-width="0.8">
-              <!-- North America -->
-              <polygon points="94,44 196,37 254,52 308,78 310,114 296,155 280,186 256,212 232,232 192,238 162,220 138,195 112,165 92,138 88,105 95,72"/>
-              <!-- Mexico/Central America -->
-              <polygon points="228,172 260,165 269,185 258,200 240,215 228,229 217,220 214,198 220,180"/>
-              <!-- Greenland -->
-              <polygon points="348,31 398,26 428,34 438,57 418,73 388,78 358,69 344,51"/>
-              <!-- South America -->
-              <polygon points="230,232 304,225 332,248 343,278 328,315 298,348 264,358 236,345 215,315 213,285 220,258"/>
-              <!-- Europe -->
-              <polygon points="442,61 513,58 538,70 535,90 518,106 493,112 466,110 448,100 440,84"/>
-              <!-- Scandinavia -->
-              <polygon points="475,41 503,37 521,50 516,70 500,80 480,72 470,57"/>
-              <!-- Iceland -->
-              <polygon points="398,52 422,48 432,60 418,70 400,66"/>
-              <!-- Africa -->
-              <polygon points="448,100 540,97 558,128 554,168 540,202 515,237 490,254 465,255 443,240 432,208 432,170 440,138"/>
-              <!-- Middle East -->
-              <polygon points="538,90 590,87 606,108 595,128 568,130 540,118"/>
-              <!-- Asia main -->
-              <polygon points="540,44 737,41 853,51 878,82 872,116 852,143 812,158 773,165 728,160 690,148 658,138 618,128 580,118 555,108 540,88"/>
-              <!-- Indian subcontinent -->
-              <polygon points="615,128 658,125 672,148 665,178 648,200 625,208 608,195 600,168 605,145"/>
-              <!-- SE Asia peninsula -->
-              <polygon points="728,155 760,154 764,174 750,196 732,200 718,188 715,168"/>
-              <!-- Japan -->
-              <polygon points="846,100 863,97 868,114 856,124 840,120 838,107"/>
-              <!-- Australia -->
-              <polygon points="762,238 834,232 854,256 847,288 822,303 782,302 760,285 754,262"/>
-            </g>
-
-            <!-- Route arcs -->
-            <g fill="none" stroke="#f0b429" stroke-width="1.8" stroke-linecap="round" opacity="0.9">
-              <!-- EWR→LAX (domestic) -->
-              <path d="M282,121 Q223,78 164,137"/>
-              <!-- ORD→LHR (transatlantic) -->
-              <path d="M246,117 Q362,14 479,94"/>
-              <!-- IAH→NRT (transpacific) -->
-              <path d="M226,147 Q540,18 854,133"/>
-              <!-- SFO→SIN (Pacific) -->
-              <path d="M154,128 Q456,62 757,217"/>
-              <!-- EWR→FRA (transatlantic) -->
-              <path d="M282,121 Q392,38 503,98"/>
-              <!-- DEN→HNL (Hawaii) -->
-              <path d="M201,123 Q130,95 59,168"/>
-              <!-- LAX→CDG (transatlantic) -->
-              <path d="M164,137 Q326,17 487,100"/>
-              <!-- IAD→GRU (South America) -->
-              <path d="M274,125 Q360,192 356,277"/>
-            </g>
-
-            <!-- US Hub airport dots (gold) -->
-            <g fill="#f0b429" stroke="#060e20" stroke-width="1.2">
-              <circle cx="282" cy="121" r="4.5"/><!-- EWR -->
-              <circle cx="164" cy="137" r="4.5"/><!-- LAX -->
-              <circle cx="246" cy="117" r="4.5"/><!-- ORD -->
-              <circle cx="226" cy="147" r="4.5"/><!-- IAH -->
-              <circle cx="154" cy="128" r="4.5"/><!-- SFO -->
-              <circle cx="201" cy="123" r="4.5"/><!-- DEN -->
-              <circle cx="274" cy="125" r="4.5"/><!-- IAD -->
-              <circle cx="59"  cy="168" r="4.5"/><!-- HNL -->
-            </g>
-            <!-- International destination dots (white) -->
-            <g fill="white" stroke="#060e20" stroke-width="1">
-              <circle cx="479" cy="94"  r="3.5"/><!-- LHR -->
-              <circle cx="854" cy="133" r="3.5"/><!-- NRT -->
-              <circle cx="757" cy="217" r="3.5"/><!-- SIN -->
-              <circle cx="503" cy="98"  r="3.5"/><!-- FRA -->
-              <circle cx="487" cy="100" r="3.5"/><!-- CDG -->
-              <circle cx="356" cy="277" r="3.5"/><!-- GRU -->
-            </g>
-
-            <!-- Airport labels -->
-            <g font-family="Montserrat,Arial,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.9)">
-              <text x="289" y="118">EWR</text>
-              <text x="157" y="150" text-anchor="middle">LAX</text>
-              <text x="238" y="110" text-anchor="end">ORD</text>
-              <text x="218" y="162" text-anchor="end">IAH</text>
-              <text x="147" y="125" text-anchor="end">SFO</text>
-              <text x="201" y="113" text-anchor="middle">DEN</text>
-              <text x="267" y="118" text-anchor="end">IAD</text>
-              <text x="59"  y="183" text-anchor="middle">HNL</text>
-              <text x="472" y="86" text-anchor="end">LHR</text>
-              <text x="510" y="92">FRA</text>
-              <text x="860" y="130">NRT</text>
-              <text x="757" y="230" text-anchor="middle">SIN</text>
-              <text x="480" y="112" text-anchor="end">CDG</text>
-              <text x="356" y="292" text-anchor="middle">GRU</text>
-            </g>
-          </svg>
+          <div id="routeMap"></div>
         </div>
         <div class="route-map-legend">
           <span><em class="rml-dot rml-us"></em>US Hub</span>
@@ -1417,5 +1302,114 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
+  <script>
+  /* ─── Route Network Map (MapLibre GL) ─── */
+  (function () {
+    var el = document.getElementById('routeMap');
+    if (!el || !window.maplibregl) return;
+
+    function gcArc(from, to, steps) {
+      var toRad = function(d) { return d * Math.PI / 180; };
+      var toDeg = function(r) { return r * 180 / Math.PI; };
+      var ln1 = toRad(from[0]), lt1 = toRad(from[1]);
+      var ln2 = toRad(to[0]),   lt2 = toRad(to[1]);
+      var d = 2 * Math.asin(Math.sqrt(
+        Math.pow(Math.sin((lt2 - lt1) / 2), 2) +
+        Math.cos(lt1) * Math.cos(lt2) * Math.pow(Math.sin((ln2 - ln1) / 2), 2)
+      ));
+      if (d < 0.001) return [from, to];
+      var pts = [];
+      for (var i = 0; i <= steps; i++) {
+        var t = i / steps;
+        var A = Math.sin((1 - t) * d) / Math.sin(d);
+        var B = Math.sin(t * d) / Math.sin(d);
+        var x = A * Math.cos(lt1) * Math.cos(ln1) + B * Math.cos(lt2) * Math.cos(ln2);
+        var y = A * Math.cos(lt1) * Math.sin(ln1) + B * Math.cos(lt2) * Math.sin(ln2);
+        var z = A * Math.sin(lt1)                  + B * Math.sin(lt2);
+        pts.push([toDeg(Math.atan2(y, x)), toDeg(Math.atan2(z, Math.sqrt(x*x + y*y)))]);
+      }
+      return pts;
+    }
+
+    var airports = {
+      EWR: { c: [-74.17,  40.69], hub: true  },
+      LAX: { c: [-118.41, 33.94], hub: true  },
+      ORD: { c: [-87.91,  41.98], hub: true  },
+      LHR: { c: [-0.46,   51.48], hub: false },
+      IAH: { c: [-95.34,  29.98], hub: true  },
+      NRT: { c: [140.39,  35.77], hub: false },
+      SFO: { c: [-122.38, 37.62], hub: true  },
+      SIN: { c: [103.99,   1.35], hub: false },
+      FRA: { c: [8.57,    50.04], hub: false },
+      DEN: { c: [-104.67, 39.86], hub: true  },
+      HNL: { c: [-157.92, 21.32], hub: true  },
+      CDG: { c: [2.55,    48.99], hub: false },
+      IAD: { c: [-77.46,  38.94], hub: true  },
+      GRU: { c: [-46.48, -23.43], hub: false },
+      CLT: { c: [-80.94,  35.21], hub: false },
+      BOS: { c: [-71.00,  42.36], hub: false },
+      MCO: { c: [-81.31,  28.43], hub: false }
+    };
+
+    var routes = [
+      ['EWR','LAX'], ['ORD','LHR'], ['IAH','NRT'], ['SFO','SIN'],
+      ['EWR','FRA'], ['DEN','HNL'], ['LAX','CDG'], ['IAD','GRU'],
+      ['ORD','CLT'], ['EWR','BOS'], ['LAX','ORD'], ['IAH','MCO']
+    ];
+
+    var map = new maplibregl.Map({
+      container: 'routeMap',
+      style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+      center: [-20, 28],
+      zoom: 1.35,
+      interactive: true,
+      attributionControl: { compact: true }
+    });
+
+    map.on('load', function () {
+      map.addSource('routes', {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: routes.map(function(pair) {
+            return {
+              type: 'Feature',
+              geometry: {
+                type: 'LineString',
+                coordinates: gcArc(airports[pair[0]].c, airports[pair[1]].c, 60)
+              }
+            };
+          })
+        }
+      });
+
+      map.addLayer({ id: 'routes-glow', type: 'line', source: 'routes',
+        paint: { 'line-color': '#f0b429', 'line-width': 5, 'line-opacity': 0.12 }
+      });
+      map.addLayer({ id: 'routes-line', type: 'line', source: 'routes',
+        paint: { 'line-color': '#f0b429', 'line-width': 1.6, 'line-opacity': 0.88 }
+      });
+
+      Object.keys(airports).forEach(function(iata) {
+        var data = airports[iata];
+        var dot = document.createElement('div');
+        dot.className = data.hub ? 'rmap-dot rmap-hub' : 'rmap-dot rmap-intl';
+
+        var popup = new maplibregl.Popup({
+          closeButton: false, offset: 12, className: 'rmap-popup-wrap'
+        }).setHTML('<strong>' + iata + '</strong>');
+
+        var marker = new maplibregl.Marker({ element: dot, anchor: 'center' })
+          .setLngLat(data.c)
+          .setPopup(popup)
+          .addTo(map);
+
+        dot.addEventListener('mouseenter', function() { marker.getPopup().addTo(map); });
+        dot.addEventListener('mouseleave', function() { marker.getPopup().remove(); });
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
