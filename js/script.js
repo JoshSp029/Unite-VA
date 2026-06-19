@@ -157,40 +157,52 @@ const registerForm = document.getElementById('registerForm');
 const formSuccess  = document.getElementById('formSuccess');
 
 if (registerForm) {
-  registerForm.addEventListener('submit', e => {
+  registerForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    // Simple required-field validation
     const required = registerForm.querySelectorAll('[required]');
     let valid = true;
-
     required.forEach(field => {
       field.style.borderColor = '';
+      field.style.boxShadow  = '';
       if (!field.value.trim()) {
         field.style.borderColor = '#e53e3e';
-        field.style.boxShadow = '0 0 0 3px rgba(229,62,62,0.15)';
+        field.style.boxShadow   = '0 0 0 3px rgba(229,62,62,0.15)';
         valid = false;
       }
     });
-
     if (!valid) return;
 
-    // Simulate submission (replace with real fetch/API call)
     const btn = registerForm.querySelector('[type="submit"]');
-    btn.disabled = true;
-    btn.textContent = 'Enviando…';
+    btn.disabled    = true;
+    btn.textContent = 'Sending…';
 
-    setTimeout(() => {
-      registerForm.style.display = 'none';
-      formSuccess.classList.add('visible');
-    }, 1200);
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(registerForm)
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        registerForm.style.display = 'none';
+        formSuccess.classList.add('visible');
+      } else {
+        btn.disabled    = false;
+        btn.textContent = 'Submit Application';
+        alert('There was a problem sending your application. Please try again or email us at unitedvaivao@gmail.com');
+      }
+    } catch {
+      btn.disabled    = false;
+      btn.textContent = 'Submit Application';
+      alert('Connection error. Please try again or email us at unitedvaivao@gmail.com');
+    }
   });
 
-  // Clear red border on input
   registerForm.querySelectorAll('input, select, textarea').forEach(field => {
     field.addEventListener('input', () => {
       field.style.borderColor = '';
-      field.style.boxShadow = '';
+      field.style.boxShadow   = '';
     });
   });
 }
