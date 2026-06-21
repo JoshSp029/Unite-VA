@@ -235,7 +235,9 @@ if (registerForm) {
 /* ─── Smooth scroll for anchor links ─── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (href === '#') return; // bare # links are handled by their own JS (e.g. modals)
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     const offset = 72;
