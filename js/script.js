@@ -207,6 +207,31 @@ if (registerForm) {
   });
 }
 
+/* ─── GDPR Privacy Modal ─── */
+(function () {
+  const modal   = document.getElementById('gdprModal');
+  const overlay = document.getElementById('gdprModalOverlay');
+  const closeBtn = document.getElementById('gdprModalClose');
+  const trigger = document.getElementById('privacyLink');
+  if (!modal || !trigger) return;
+
+  function openModal(e) {
+    e.preventDefault();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', openModal);
+  overlay.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
+
 /* ─── Smooth scroll for anchor links ─── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {

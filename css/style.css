@@ -992,24 +992,14 @@ img, svg { display: block; }
 .nav-ivao-badge {
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(0,50,122,0.6);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 40px;
-  padding: 5px 12px 5px 6px;
   margin-left: 8px;
-  font-family: var(--font-head);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.85);
-  transition: background var(--transition), border-color var(--transition);
   flex-shrink: 0;
+  opacity: 0.9;
+  transition: opacity var(--transition);
 }
 
 .nav-ivao-badge:hover {
-  background: rgba(0,50,122,0.9);
-  border-color: rgba(255,255,255,0.35);
+  opacity: 1;
 }
 
 /* ─── Hero network badges ─── */
@@ -2046,3 +2036,157 @@ img, svg { display: block; }
   letter-spacing: .02em;
 }
 .footer-email-link:hover { opacity: 1; text-decoration: underline; }
+
+/* ─── Fleet card real photo images ─── */
+.fcard-plane-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.45s ease;
+}
+.fleet-card:hover .fcard-plane-img { transform: scale(1.06); }
+
+/* ─── IVAO Partner Banner ─── */
+.ivao-partner-banner {
+  background: linear-gradient(135deg, #00195a 0%, #00327a 60%, #004aad 100%);
+  padding: 36px 24px;
+  text-align: center;
+}
+.ivao-partner-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.ivao-partner-banner img.ivao-banner-img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.4);
+}
+.ivao-partner-tagline {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.ivao-partner-tagline strong {
+  color: var(--gold-light);
+}
+
+/* ─── GDPR Modal ─── */
+.gdpr-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.gdpr-modal.open { display: flex; }
+.gdpr-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7,22,40,0.82);
+  backdrop-filter: blur(4px);
+}
+.gdpr-modal-box {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.gdpr-modal-header {
+  padding: 28px 32px 20px;
+  border-bottom: 1px solid #e8edf4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.gdpr-modal-header h2 {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy-700);
+  margin: 0;
+}
+.gdpr-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #64748b;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.gdpr-modal-close:hover { background: #f1f5f9; color: var(--navy-700); }
+.gdpr-modal-body {
+  overflow-y: auto;
+  padding: 28px 32px 32px;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.75;
+}
+.gdpr-modal-body h3 {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-700);
+  margin: 22px 0 8px;
+}
+.gdpr-modal-body h3:first-child { margin-top: 0; }
+.gdpr-modal-body p { margin-bottom: 10px; }
+.gdpr-modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.gdpr-modal-body ul li { margin-bottom: 5px; }
+.gdpr-modal-body a { color: var(--blue-600); text-decoration: underline; }
+.gdpr-section-num {
+  display: inline-block;
+  background: var(--navy-700);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 0.68rem;
+  font-weight: 700;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  margin-right: 7px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* ─── IVAO affiliation image ─── */
+.aff-ivao-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .ivao-partner-banner img.ivao-banner-img { max-width: 100%; }
+  .gdpr-modal-header { padding: 20px; }
+  .gdpr-modal-body { padding: 20px; }
+}
