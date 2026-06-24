@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -709,16 +708,20 @@
 
       </div><!-- /routes-grid -->
 
-      <!-- Route Network Map -->
+      <!-- Live Flight Map (NewSky) -->
       <div class="route-map-wrap reveal">
-        <h3 class="route-map-title">Route Network</h3>
+        <h3 class="route-map-title">Live Flight Map</h3>
         <div class="route-map-container">
-          <div id="routeMap"></div>
+          <iframe
+            id="routeMap"
+            src="https://newsky.app/airline/public/map?style=dark&token=UEA_XpoR4DN9Xlx7MvB4O4Wqfi4wX7ii4k"
+            title="United VA — Live flights on the NewSky network"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="route-map-legend">
-          <span><em class="rml-dot rml-us"></em>US Hub</span>
-          <span><em class="rml-dot rml-intl"></em>International</span>
-          <span class="rml-line">— Route Arc</span>
+          <span>Live flights on the NewSky network</span>
         </div>
       </div>
 
@@ -1226,114 +1229,5 @@
   </div>
 
   <script src="js/script.js"></script>
-  <script src="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.js"></script>
-  <script>
-  /* ─── Route Network Map (MapLibre GL) ─── */
-  (function () {
-    var el = document.getElementById('routeMap');
-    if (!el || !window.maplibregl) return;
-
-    function gcArc(from, to, steps) {
-      var toRad = function(d) { return d * Math.PI / 180; };
-      var toDeg = function(r) { return r * 180 / Math.PI; };
-      var ln1 = toRad(from[0]), lt1 = toRad(from[1]);
-      var ln2 = toRad(to[0]),   lt2 = toRad(to[1]);
-      var d = 2 * Math.asin(Math.sqrt(
-        Math.pow(Math.sin((lt2 - lt1) / 2), 2) +
-        Math.cos(lt1) * Math.cos(lt2) * Math.pow(Math.sin((ln2 - ln1) / 2), 2)
-      ));
-      if (d < 0.001) return [from, to];
-      var pts = [];
-      for (var i = 0; i <= steps; i++) {
-        var t = i / steps;
-        var A = Math.sin((1 - t) * d) / Math.sin(d);
-        var B = Math.sin(t * d) / Math.sin(d);
-        var x = A * Math.cos(lt1) * Math.cos(ln1) + B * Math.cos(lt2) * Math.cos(ln2);
-        var y = A * Math.cos(lt1) * Math.sin(ln1) + B * Math.cos(lt2) * Math.sin(ln2);
-        var z = A * Math.sin(lt1)                  + B * Math.sin(lt2);
-        pts.push([toDeg(Math.atan2(y, x)), toDeg(Math.atan2(z, Math.sqrt(x*x + y*y)))]);
-      }
-      return pts;
-    }
-
-    var airports = {
-      EWR: { c: [-74.17,  40.69], hub: true  },
-      LAX: { c: [-118.41, 33.94], hub: true  },
-      ORD: { c: [-87.91,  41.98], hub: true  },
-      LHR: { c: [-0.46,   51.48], hub: false },
-      IAH: { c: [-95.34,  29.98], hub: true  },
-      NRT: { c: [140.39,  35.77], hub: false },
-      SFO: { c: [-122.38, 37.62], hub: true  },
-      SIN: { c: [103.99,   1.35], hub: false },
-      FRA: { c: [8.57,    50.04], hub: false },
-      DEN: { c: [-104.67, 39.86], hub: true  },
-      HNL: { c: [-157.92, 21.32], hub: true  },
-      CDG: { c: [2.55,    48.99], hub: false },
-      IAD: { c: [-77.46,  38.94], hub: true  },
-      GRU: { c: [-46.48, -23.43], hub: false },
-      CLT: { c: [-80.94,  35.21], hub: false },
-      BOS: { c: [-71.00,  42.36], hub: false },
-      MCO: { c: [-81.31,  28.43], hub: false }
-    };
-
-    var routes = [
-      ['EWR','LAX'], ['ORD','LHR'], ['IAH','NRT'], ['SFO','SIN'],
-      ['EWR','FRA'], ['DEN','HNL'], ['LAX','CDG'], ['IAD','GRU'],
-      ['ORD','CLT'], ['EWR','BOS'], ['LAX','ORD'], ['IAH','MCO']
-    ];
-
-    var map = new maplibregl.Map({
-      container: 'routeMap',
-      style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
-      center: [-20, 28],
-      zoom: 1.35,
-      interactive: true,
-      attributionControl: { compact: true }
-    });
-
-    map.on('load', function () {
-      map.addSource('routes', {
-        type: 'geojson',
-        data: {
-          type: 'FeatureCollection',
-          features: routes.map(function(pair) {
-            return {
-              type: 'Feature',
-              geometry: {
-                type: 'LineString',
-                coordinates: gcArc(airports[pair[0]].c, airports[pair[1]].c, 60)
-              }
-            };
-          })
-        }
-      });
-
-      map.addLayer({ id: 'routes-glow', type: 'line', source: 'routes',
-        paint: { 'line-color': '#f0b429', 'line-width': 5, 'line-opacity': 0.12 }
-      });
-      map.addLayer({ id: 'routes-line', type: 'line', source: 'routes',
-        paint: { 'line-color': '#f0b429', 'line-width': 1.6, 'line-opacity': 0.88 }
-      });
-
-      Object.keys(airports).forEach(function(iata) {
-        var data = airports[iata];
-        var dot = document.createElement('div');
-        dot.className = data.hub ? 'rmap-dot rmap-hub' : 'rmap-dot rmap-intl';
-
-        var popup = new maplibregl.Popup({
-          closeButton: false, offset: 12, className: 'rmap-popup-wrap'
-        }).setHTML('<strong>' + iata + '</strong>');
-
-        var marker = new maplibregl.Marker({ element: dot, anchor: 'center' })
-          .setLngLat(data.c)
-          .setPopup(popup)
-          .addTo(map);
-
-        dot.addEventListener('mouseenter', function() { marker.getPopup().addTo(map); });
-        dot.addEventListener('mouseleave', function() { marker.getPopup().remove(); });
-      });
-    });
-  })();
-  </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ Built as a client project and used as a personal learning exercise in web develo
 ## Live Features
 
 - **Hero section** with animated star canvas and network affiliation badges
-- **Interactive route map** powered by [MapLibre GL 4](https://maplibre.org/) with great-circle arc routes
+- **Live flight map** — the team's real-time flights embedded from the [NewSky](https://newsky.app/) network
 - **Fleet showcase** — 11 aircraft cards with real photos and hover zoom
 - **Stats bar** with animated counters triggered on scroll
 - **Pilot registration form** wired to [Web3Forms](https://web3forms.com/) for real email delivery (no backend needed)
@@ -26,7 +26,7 @@ Built as a client project and used as a personal learning exercise in web develo
 | Structure | HTML5 (semantic) |
 | Styles | CSS3 — custom properties, Grid, Flexbox, animations |
 | Interactivity | Vanilla JavaScript (ES2020+) |
-| Map | MapLibre GL 4 (CDN) |
+| Map | NewSky public live map (iframe embed) |
 | Form backend | Web3Forms API |
 | Hosting | Static — no build tools, no frameworks |
 
@@ -62,7 +62,7 @@ It was a practical introduction to how AI-assisted development works in a real c
 - **No build pipeline** — the entire site is HTML/CSS/JS files served directly; fast to deploy anywhere
 - **All assets are local** — no hotlinked external images (except the live IVAO pilot status API which is intentionally dynamic)
 - **GDPR modal** — built without any library; pure JS + CSS with body scroll lock
-- **Route map** — great-circle arcs drawn programmatically over a dark MapLibre base map
+- **Live flight map** — the NewSky public live map embedded via iframe, showing the team's real-time network activity
 - **Form submission** — async fetch to Web3Forms with client-side validation and error states
 
 ## Client
