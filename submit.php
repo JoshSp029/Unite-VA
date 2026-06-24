@@ -1,8 +1,12 @@
 <?php
+// Suppress PHP notices/warnings so they don't corrupt the JSON response
+error_reporting(0);
+ini_set('display_errors', '0');
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     header('Content-Type: application/json');
-    echo json_encode(['success' => false]);
+    echo json_encode(['success' => false, 'error' => 'Method not allowed']);
     exit;
 }
 
@@ -11,7 +15,7 @@ header('Content-Type: application/json');
 $required = ['firstName', 'lastName', 'age', 'country', 'email', 'simulator', 'level'];
 foreach ($required as $field) {
     if (empty($_POST[$field])) {
-        echo json_encode(['success' => false]);
+        echo json_encode(['success' => false, 'error' => "Missing field: {$field}"]);
         exit;
     }
 }
@@ -31,12 +35,12 @@ $hours     = isset($_POST['hours']) && $_POST['hours'] !== '' ? (int) $_POST['ho
 $message   = isset($_POST['message']) && $_POST['message'] !== '' ? clean($_POST['message']) : 'No message provided';
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(['success' => false]);
+    echo json_encode(['success' => false, 'error' => 'Invalid email']);
     exit;
 }
 
 $to      = 'unitedvaivao@gmail.com';
-$subject = 'New Pilot Application — United VA';
+$subject = 'New Pilot Application - United VA';
 
 $body  = "New pilot application received from the United VA website.\n\n";
 $body .= "Name:             {$firstName} {$lastName}\n";
@@ -48,10 +52,16 @@ $body .= "Experience Level: {$level}\n";
 $body .= "Flight Hours:     {$hours}\n\n";
 $body .= "Message:\n{$message}\n";
 
-$headers  = "From: United VA Website <noreply@unitedva.pro>\r\n";
+// From address must be a valid mailbox on this server
+$headers  = "From: United VA <contact@unitedva.pro>\r\n";
 $headers .= "Reply-To: {$email}\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
 $sent = mail($to, $subject, $body, $headers);
+
+// Log result for debugging (remove once confirmed working)
+$logLine = date('Y-m-d H:i:s') . " | sent=" . ($sent ? 'true' : 'false') . " | to={$to} | from={$firstName} {$lastName} <{$email}>\n";
+@file_put_contents(__DIR__ . '/mail.log', $logLine, FILE_APPEND);
 
 echo json_encode(['success' => $sent]);
